@@ -3,7 +3,7 @@ Course: CSCI 235
 Creation: 02/04/20
 Header file for the Animal class*/
 
-#include <string>;
+#include <string>
 using namespace std;
 
 class Animal {
@@ -20,4 +20,4 @@ public:
  	string name_;
  	bool domestic_;
  	bool predator_;
-}
+};

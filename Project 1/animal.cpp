@@ -3,11 +3,12 @@ Course: CSCI 235
 Creation: 02/04/20
 Implementation for the Animal class*/
 
-#include <"animal.hpp">;
-#include<string>;
+#include <string> 
+#include <iostream> 
+#include "animal.hpp" 
 using namespace std;
 
-Animal::Animal(string name, bool domestic = false, bool predator = false){
+Animal::Animal(string name, bool domestic, bool predator){
 	name_ = name;
 	domestic_ = domestic;
 	predator_ = predator;
