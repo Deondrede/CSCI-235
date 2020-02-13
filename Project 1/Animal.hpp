@@ -10,11 +10,16 @@ using namespace std;
 
 class Animal {
 public:
+	//Constructors
 	Animal();
 	Animal(string name, bool domestic = false, bool predator = false);
+	
+	//Accessors
 	string getName() const;
 	bool isDomestic() const;
  	bool isPredator() const;
+	
+	//Mutators
  	void setName(string name);
  	void setDomestic();
  	void setPredator();
