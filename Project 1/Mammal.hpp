@@ -12,8 +12,11 @@ using namespace std;
 //Mammal class to inherit Animal class
 class Mammal : public Animal {
 public:
+    //Constructors
     Mammal();
     Mammal(string name, bool domestic = false, bool predator = false);
+    
+    //Accessors
     bool hasHair() const;
     bool isAirborne() const;
     bool isAquatic() const;
@@ -21,6 +24,8 @@ public:
     bool hasFins() const;
     bool hasTail() const;
     int legs() const;
+    
+    //Mutators
     void setHair();
     void setAirborne();
     void setAquatic();
