@@ -12,9 +12,14 @@ using namespace std;
 //Fish class to inherit Animal class
 class Fish : public Animal{
 public:
+    //Constructors
     Fish();
     Fish(string name, bool domestic = false, bool predator = false);
+    
+    //Accessors
     bool isVenomous() const;
+    
+    //Mutator
     void setVenomous();
 private:
     bool venomous_ = false;
