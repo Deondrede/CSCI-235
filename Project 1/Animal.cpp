@@ -8,6 +8,12 @@ Implementation for the Animal class*/
 #include "animal.hpp" 
 using namespace std;
 
+Animal::Animal(){
+	name_ = "";
+	domestic_ = false;
+	predator_ = false;
+}
+
 Animal::Animal(string name, bool domestic, bool predator){
 	name_ = name;
 	domestic_ = domestic;
@@ -31,19 +37,9 @@ void Animal::setName(string name) {
 }
 
 void Animal::setDomestic(){
-	if (domestic_ == false){
-		domestic_ = true;
-	}
-	else if (domestic_ == true){
-		domestic_ = false;
-	}
+	domestic_ = domestic;
 }
 
 void Animal::setPredator(){
-	if (predator_ == false){
-		predator_ = true;
-	}
-	else if (predator_ == true){
-		predator_ = false;
-	}
+	predator_ = predator;
 }
