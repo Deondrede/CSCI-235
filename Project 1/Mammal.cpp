@@ -67,19 +67,3 @@ void Mammal::setTail(){
 void Mammal::setLegs(int legs){
     legs_ = legs;
 }
-
-/*int main(){
-    Mammal elephant("dumbo");
-    cout << elephant.getName() << endl;
-    elephant.setName("new dumbo");
-    cout << elephant.getName() << endl;
-    cout << elephant.hasTail() << endl;
-    elephant.setTail();
-    cout << elephant.hasTail() << endl;
-    elephant.setLegs(4);
-    cout << elephant.legs() << endl;
-    cout << elephant.isDomestic() << endl;
-    elephant.setDomestic();
-    cout << elephant.isDomestic() << endl;
-    return 0;
-}*/

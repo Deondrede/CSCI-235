@@ -27,14 +27,3 @@ void Bird::setAirborne(){
 void Bird::setAquatic(){
     aquatic_ = true;
 }
-
-/*int main(){
-    Bird raven("that's so raven");
-    cout << raven.getName() << endl;
-    cout << raven.isAirborne() << " this should be zero" << endl;
-    raven.setAirborne();
-    cout << raven.isAirborne() << " this should be one" << endl;
-    raven.setName("that's really raven");
-    cout << raven.getName() << endl;
-    return 0;
-}*/

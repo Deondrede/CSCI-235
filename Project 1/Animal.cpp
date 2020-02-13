@@ -5,7 +5,7 @@ Implementation for the Animal class*/
 
 #include <string> 
 #include <iostream> 
-#include "animal.hpp" 
+#include "Animal.hpp" 
 using namespace std;
 
 Animal::Animal(){
@@ -37,9 +37,9 @@ void Animal::setName(string name) {
 }
 
 void Animal::setDomestic(){
-	domestic_ = domestic;
+	domestic_ = true;
 }
 
 void Animal::setPredator(){
-	predator_ = predator;
+	predator_ = true;
 }

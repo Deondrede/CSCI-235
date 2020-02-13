@@ -19,16 +19,3 @@ bool Fish::isVenomous() const{
 void Fish::setVenomous(){
     venomous_ = true;
 }
-
-/*int main(){
-    Fish tuna("that's a spicy tuna sandwhich");
-    cout << tuna.getName() << endl;
-    cout << tuna.isVenomous() << " not venomous" << endl;
-    tuna.setVenomous();
-    cout << tuna.isVenomous() << " venomous" << endl;
-    cout << tuna.isDomestic() << " not domestic" << endl;
-    tuna.setDomestic();
-    cout << tuna.isDomestic() << " domestic" << endl;
-    tuna.setName("I'm actually a piranha");
-    cout << tuna.getName() << endl;
-}*/
