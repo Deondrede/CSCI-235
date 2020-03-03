@@ -26,6 +26,7 @@ public:
    LinkedBag(const LinkedBag<ItemType>& aBag); // Copy constructor
    virtual ~LinkedBag();                       // Destructor should be virtual
    int getCurrentSize() const;
+   int getCurrentSizeRecursive();
    bool isEmpty() const;
    bool add(const ItemType& newEntry);
    bool remove(const ItemType& anEntry);
@@ -35,5 +36,5 @@ public:
    std::vector<ItemType> toVector() const;
 }; // end LinkedBag
 
-#include "LinkedBag.cpp"
+//#include "LinkedBag.cpp"
 #endif

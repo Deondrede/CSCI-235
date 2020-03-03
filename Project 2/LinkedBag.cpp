@@ -7,6 +7,8 @@
 #include "LinkedBag.h"
 #include "Node.h"
 #include <cstddef>
+#include <iostream>
+using namespace std;
 
 template<class ItemType>
 LinkedBag<ItemType>::LinkedBag() : headPtr(nullptr), itemCount(0)
@@ -67,21 +69,49 @@ bool LinkedBag<ItemType>::isEmpty() const
 
 template<class ItemType>
 int LinkedBag<ItemType>::getCurrentSize() const
-{
-	return itemCount;
+{  
+   // Iterative versrion of getCurrentSize
+   int count = 0;
+   Node<ItemType>* current = headPtr;
+   while (current != nullptr){   // Traverse through chain
+      current = current->getNext();    // Set to next node in chain
+      count++;
+   }
+   return count;
 }  // end getCurrentSize
+
+template<class ItemType>
+int LinkedBag<ItemType>::getCurrentSizeRecursive(){
+   // Recursive version of getCurrentSize 
+   if (headPtr == nullptr){   // Base case
+      return 0;
+   }
+   else {
+      headPtr = headPtr->getNext();
+      return 1 + getCurrentSizeRecursive(); // Recursive call
+   }
+}
 
 template<class ItemType>
 bool LinkedBag<ItemType>::add(const ItemType& newEntry)
 {
-   // Add to beginning of chain: new node references rest of chain;
-   // (headPtr is null if chain is empty)        
+   // Add to the end of chain
+   // (headPtr is null if chain is empty)
+   
+   Node<ItemType>* Npointer = nullptr;        
    Node<ItemType>* nextNodePtr = new Node<ItemType>();
    nextNodePtr->setItem(newEntry);
-   nextNodePtr->setNext(headPtr);  // New node points to chain
-//   Node<ItemType>* nextNodePtr = new Node<ItemType>(newEntry, headPtr); // alternate code
-
-   headPtr = nextNodePtr;          // New node is now first node
+   nextNodePtr->setNext(Npointer);
+   if (headPtr == nullptr){
+     headPtr = nextNodePtr;   // If list is empty 
+   }
+   else {               //List is not empty
+      Node<ItemType>* tempPointer = headPtr;
+      while (tempPointer->getNext() != nullptr){   //Traverse chain
+         tempPointer = tempPointer->getNext();
+      }
+      tempPointer->setNext(nextNodePtr);
+   }
    itemCount++;
    
    return true;
@@ -224,4 +254,22 @@ Node<ItemType>* LinkedBag<ItemType>::getPointerTo(const ItemType& anEntry) const
    return curPtr;
 } // end getPointerTo
 
+/*void LinkedBag<ItemType>::deleteSecondNode(){
 
+}*/
+
+int main(){
+   double x = 4;
+   double z = 12.45;
+   double y = 14.82;
+
+   LinkedBag<double> thing;
+   thing.add(z);
+   thing.add(x);
+   thing.add(y);
+   cout << thing.contains(z) << " expected true" << endl;
+   cout << thing.getCurrentSizeRecursive() << " expected 3" << endl;
+   cout << thing.isEmpty() << " expected false" << endl;
+
+   return 0;
+}
