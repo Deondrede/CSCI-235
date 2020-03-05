@@ -1,6 +1,7 @@
 //  Created by Frank M. Carrano and Timothy M. Henry.
 //  Copyright (c) 2017 Pearson Education, Hoboken, New Jersey.
 
+// Modified by: Deondre De Freitas
 /** ADT bag: Link-based implementation.
     @file LinkedBag.cpp */
 
@@ -14,6 +15,13 @@ template<class ItemType>
 LinkedBag<ItemType>::LinkedBag() : headPtr(nullptr), itemCount(0)
 {
 }  // end default constructor
+
+template<class ItemType>
+LinkedBag<ItemType>::LinkedBag(ItemType entries[], int entryCount){
+   for(int i = 0; i < entryCount; i++){
+      add(entries[i]);   // Add each element of the array to the list
+   }
+}  // End array constructor
 
 template<class ItemType>
 LinkedBag<ItemType>::LinkedBag(const LinkedBag<ItemType>& aBag)
@@ -254,22 +262,42 @@ Node<ItemType>* LinkedBag<ItemType>::getPointerTo(const ItemType& anEntry) const
    return curPtr;
 } // end getPointerTo
 
-/*void LinkedBag<ItemType>::deleteSecondNode(){
+template<class ItemType>
+void LinkedBag<ItemType>::deleteSecondNode(){
+   Node<ItemType>* firstNode = headPtr;
+   if (headPtr == nullptr){   // If list is empty or there is no first node
+      return;
+   }
+   else {
+      Node<ItemType>* secondNode = firstNode->getNext();
+      firstNode->setNext(secondNode->getNext());   // Get address of third node
+      free(secondNode);
+   }
+}  // end deleteSecondNode
 
-}*/
+template<class ItemType>
+ItemType LinkedBag<ItemType>::removeRandom(){
+   int randomNum = abs(rand() % itemCount); // Random number between 0 and the current number of entries in the list
+   Node<ItemType>* randPtr = headPtr;
+   
+   for (int i = 0; i < randomNum; i++){
+      randPtr = randPtr->getNext();
+   }
 
-int main(){
-   double x = 4;
-   double z = 12.45;
-   double y = 14.82;
+   ItemType deletedEntry = randPtr->getItem();
+   remove(deletedEntry);
 
-   LinkedBag<double> thing;
-   thing.add(z);
-   thing.add(x);
-   thing.add(y);
-   cout << thing.contains(z) << " expected true" << endl;
-   cout << thing.getCurrentSizeRecursive() << " expected 3" << endl;
-   cout << thing.isEmpty() << " expected false" << endl;
+   return deletedEntry;
+}  // end deleteRandom
+
+int main (){
+
+   int arr[] = {1,3};
+   LinkedBag<int> thing(arr, 2);
+   
+
+   //cout << thing.getCurrentSize() << endl;
+  // cout << thing.contains(3) << endl;
 
    return 0;
 }
