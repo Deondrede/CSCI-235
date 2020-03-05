@@ -18,6 +18,8 @@ LinkedBag<ItemType>::LinkedBag() : headPtr(nullptr), itemCount(0)
 
 template<class ItemType>
 LinkedBag<ItemType>::LinkedBag(ItemType entries[], int entryCount){
+   headPtr = nullptr;
+   itemCount = 0;
    for(int i = 0; i < entryCount; i++){
       add(entries[i]);   // Add each element of the array to the list
    }
@@ -292,8 +294,8 @@ ItemType LinkedBag<ItemType>::removeRandom(){
 
 int main (){
 
-   int arr[] = {1,3};
-   LinkedBag<int> thing(arr, 2);
+   int arr[] = {1,3,4};
+   LinkedBag<int> thing(arr, 3);
    
 
    //cout << thing.getCurrentSize() << endl;
