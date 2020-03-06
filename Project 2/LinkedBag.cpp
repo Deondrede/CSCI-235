@@ -291,15 +291,3 @@ ItemType LinkedBag<ItemType>::removeRandom(){
 
    return deletedEntry;
 }  // end deleteRandom
-
-int main (){
-
-   int arr[] = {1,3,4};
-   LinkedBag<int> thing(arr, 3);
-   
-
-   //cout << thing.getCurrentSize() << endl;
-  // cout << thing.contains(3) << endl;
-
-   return 0;
-}
